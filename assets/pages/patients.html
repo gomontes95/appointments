@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient List</title>
+  <script src="../js/operaciones-conversion.js"></script>
+</head>
+<h3>Navigation</h3>
+<button onclick="window.location.href='patients.html'">Go to Patient List</button>
+<button onclick="window.location.href='appointments.html'">Go to Appointments</button>
+<button onclick="window.location.href= '../../index.html'" >Go to Form</button>
+
+
+<body>
+  <h2>Patients</h2>
+  <table border="1" cellpadding="5">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Birthday</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Age</th>
+        <th>Reason</th>
+        <th>Appointment</th>
+      </tr>
+    </thead>
+    <tbody id="patientTable"></tbody>
+  </table>
+
+  <script>
+     document.addEventListener('DOMContentLoaded', function() {
+        let patients = JSON.parse(localStorage.getItem("patients")) || [];
+        let table = document.getElementById("patientTable");
+        console.log(patients)
+
+        patients.forEach(p => {
+        let row = `<tr>
+            <td>${p.id}</td>
+            <td>${p.name}</td>
+            <td>${p.birthday}</td>
+            <td>${p.weight} (${convertPoundsToKg(p.weight)} kg) </td>
+            <td>${p.height} m</td>
+            <td>${p.age}</td>
+            <td>${p.reason}</td>
+            <td>${p.appointment}</td>
+        </tr>`;
+        table.innerHTML += row;
+        });
+
+    });
+  </script>
+</body>
+</html>

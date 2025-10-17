@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Appointments</title>
+  
+</head>
+<h3>Navigation</h3>
+<button onclick="window.location.href='patients.html'">Go to Patient List</button>
+<button onclick="window.location.href='appointments.html'">Go to Appointments</button>
+<button onclick="window.location.href= '../../index.html'" >Go to Form</button>
+
+<input 
+  type="text" 
+  id="searchBar" 
+  placeholder="Search by Patient ID..." 
+  oninput="filterAppointments()" 
+  style="margin-bottom: 10px; padding: 5px; width: 200px;"
+>
+
+<body>
+  <h2>Medical Appointments</h2>
+  <table border="1" cellpadding="5">
+    <thead>
+      <tr>
+        <th>Patient ID</th>
+        <th>Appointment</th>
+        <th>Status</th>
+        <th>Reason</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="appointmentTable"></tbody>
+  </table>
+<script src="../js/appointments.js"></script>
+</body>
+</html>
