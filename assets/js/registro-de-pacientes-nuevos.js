@@ -120,7 +120,7 @@ function submitForm() {
   const name = nameInput.value.trim();
   const birthday = birthdayInput.value.trim();
   const reason = reasonInput.value.trim();
-  const status = status
+  const status = false;
 
   // Validate birthday
   if ( !birthday  ) {
