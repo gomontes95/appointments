@@ -58,7 +58,7 @@
           margin-left: 4px;
         }
       
-        button, a.style-btn {
+        button {
           width: 100%;
           padding: 12px;
           background: #007BFF;
@@ -81,11 +81,3 @@
             padding: 15px;
           }
         }
-
-.div-button-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 20px;
-
-}
