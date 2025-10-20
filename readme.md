@@ -18,6 +18,7 @@ This project helps small clinics organize their schedules, reduce paperwork, and
 
 ## Project Structure
 
+
 clinic-management/
 │
 ├── assets/
@@ -33,6 +34,7 @@ clinic-management/
 ├── .gitignore → Files and folders ignored by Git
 ├── index.html → Main dashboard or register page
 └── README.md → Project documentation
+
 
 ---
 
