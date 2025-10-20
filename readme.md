@@ -1,6 +1,6 @@
 # Clinic Management System
 
-A simple web-based application to manage **appointments**, **reservations**, and **patient records** for a small clinic.
+A simple web-based application to manage **appointments**, **reservations**, and **Submit new patients and appointments** for a small clinic.
 
 This project helps small clinics organize their schedules, reduce paperwork, and maintain accurate patient information in one place.
 
@@ -18,7 +18,7 @@ This project helps small clinics organize their schedules, reduce paperwork, and
 
 ## Project Structure
 
-
+```
 clinic-management/
 │
 ├── assets/
@@ -28,22 +28,20 @@ clinic-management/
 │
 ├── pages/
 │ ├── patients.html → List and edit patient information
-│ ├── appointments.html → Schedule and view appointments
-│ └── reservations.html → Handle booking requests
+│ └── appointments.html → Schedule and view appointments
 │
 ├── .gitignore → Files and folders ignored by Git
 ├── index.html → Main dashboard or register page
 └── README.md → Project documentation
-
+```
 
 ---
 
 ## How to Run
 
-1. Clone this repository  
+1. Clone this readme
 
 2. Open the project folder  
-
 
 3. Run locally  
 Open `index.html` in your browser.  
@@ -62,7 +60,7 @@ Open `index.html` in your browser.
 ## Author
 
 **Diego Montes**  
-"Building simple tools to make clinics more efficient and organized."
+"Building tools to make life more efficient and organized."
 
 ---
 
