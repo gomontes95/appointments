@@ -1,0 +1,27 @@
+#others
+*.afphoto
+*.txt
+
+# Build artifacts
+*.o
+*.pyc
+/build/
+/dist/
+
+# Dependencies
+/node_modules/
+/vendor/
+/venv/
+
+# Log and temporary files
+*.log
+*.tmp
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Sensitive information
+.env
