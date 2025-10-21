@@ -34,8 +34,8 @@ button, a.style-btn {
 /* Page Title */
 h2 {
   color: #1976d2;
-  margin-top: 25px; /* Matched appointments title margin */
-  margin-bottom: 15px; /* Matched appointments title margin */
+  margin-top: 25px;
+  margin-bottom: 15px;
   font-weight: 500;
 }
 
@@ -52,13 +52,13 @@ table {
 th {
   background-color: #007BFF;
   color: white;
-  padding: 10px 12px; /* Matched appointments table padding */
+  padding: 10px 12px;
   text-align: left;
   font-weight: 500;
 }
 
 td {
-  padding: 10px 12px; /* Matched appointments table padding */
+  padding: 10px 12px;
   border-bottom: 1px solid #eee;
 }
 
