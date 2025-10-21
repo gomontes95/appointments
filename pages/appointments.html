@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <title>Appointments</title>
   
-  <link rel="stylesheet" href="../assets/CSS/materialize.css">
-  <link rel="stylesheet" href="../assets/CSS/submit-style.css">
+  <link rel="stylesheet" href="../assets/css/materialize/materialize.min.css">
+  <link rel="stylesheet" href="../assets/css/appointments-style.css">
+  <script src="../assets/js/materialize/materialize.min.js"></script>
+
 </head>
 <h3>Navigation</h3>
 <div class="div-button-container">
@@ -13,16 +15,21 @@
     <a href="appointments.html" class="style-btn">Go to Appointments</a>
     <a href="../index.html" class="style-btn">Go to Form</a>
 </div>
-<input 
-  type="text" 
-  id="searchBar" 
-  placeholder="Search by Patient ID..." 
-  oninput="filterAppointments()" 
-  style="margin-bottom: 10px; padding: 5px; width: 200px;"
->
+
+
 
 <body>
-  <h2>Medical Appointments</h2>
+  <h2>Medical Appointments 
+    
+    <input 
+    type="text" 
+    id="searchBar" 
+    placeholder="Search by Patient ID..." 
+    oninput="filterAppointments()" 
+    style="margin-bottom: 10px; padding: 5px; width: 200px; float: right;"
+    >
+     
+  </h2> 
   <table border="1" cellpadding="5">
     <thead>
       <tr>
