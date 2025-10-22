@@ -16,7 +16,7 @@ let status = false
 
 
  // Get existing patients from localStorage
-let patients = JSON.parse(localStorage.getItem("patients")) || [];
+let patients = localStorageHandler.getPatientList();
 
  // Generate ID (01, 02, 03...)
 let newId = (patients.length + 1).toString().padStart(2, "0");
@@ -62,7 +62,7 @@ function validateBirthday(birthday) {
   const birthDate = new Date(birthday);
 
   console.log(birthDate);
-  
+
 
   if (isNaN(birthDate.getTime())) return false;
 
@@ -71,7 +71,7 @@ function validateBirthday(birthday) {
     alert("❌ Birthday cannot be in the future!");
     return false;
   }
-  
+
   if (birthDate.getFullYear() < 1900) {
     alert("❌ Birthday must be after 1900!");
     return false;
@@ -128,8 +128,8 @@ function submitForm() {
     birthdayError.style.display = "inline";
     isValid = false;
     return;
-  } 
-  
+  }
+
   const dateParts = birthday.split("-");
   const formattedBirthday = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
   const age = calculateAge(birthday);
@@ -154,12 +154,12 @@ function submitForm() {
     heightError.style.display = "block";
     isValid = false;
   }
-  
+
 
     if (!isValid) {
     stop;
     }
-        
+
   if (!validateName(name)) {
     errorMsg.textContent = "❌ Name must contain only letters.";
     nameInput.focus();
@@ -205,15 +205,14 @@ function submitForm() {
     age: calculateAge(birthday),
     weight,
     height: height,
-    reason: reason, 
+    reason: reason,
     appointment: newAppointment,
     status: statusResult(status)
   };
-  
+
 
   // Save to array & localStorage
-  patients.push(patient);
-  localStorage.setItem("patients", JSON.stringify(patients));
+  localStorageHandler.storePatient(patient);
 
     // Clear form
   alert("Patient saved successfully!");
