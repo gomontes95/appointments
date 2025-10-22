@@ -1,9 +1,0 @@
-# Ignore minified files
-*.min.js
-*.min.css
-
-# Common build/output directories
-node_modules
-dist
-build
-coverage
