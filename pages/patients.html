@@ -1,45 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Patient List</title>
-    <link rel="stylesheet" href="../assets/css/materialize/materialize.min.css">
-    <link rel="stylesheet" href="../assets/css/submit-style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Patient List</title>
+    <link
+      rel="stylesheet"
+      href="../assets/css/materialize/materialize.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/submit-style.css" />
     <script src="../assets/js/operaciones-conversion.js"></script>
-</head>
-<h3>Navigation</h3>
-<div class="div-button-container">
+  </head>
+  <h3>Navigation</h3>
+  <div class="div-button-container">
     <a href="patients.html" class="style-btn">Go to Patient List</a>
     <a href="appointments.html" class="style-btn">Go to Appointments</a>
     <a href="../index.html" class="style-btn">Go to Form</a>
-</div>
+  </div>
 
-<body>
-  <h2>Patients</h2>
-  <table border="1" cellpadding="5">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Birthday</th>
-        <th>Weight</th>
-        <th>Height</th>
-        <th>Age</th>
-        <th>Reason</th>
-        <th>Appointment</th>
-      </tr>
-    </thead>
-    <tbody id="patientTable"></tbody>
-  </table>
+  <body>
+    <h2>Patients</h2>
+    <table border="1" cellpadding="5">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Birthday</th>
+          <th>Weight</th>
+          <th>Height</th>
+          <th>Age</th>
+          <th>Reason</th>
+          <th>Appointment</th>
+        </tr>
+      </thead>
+      <tbody id="patientTable"></tbody>
+    </table>
 
-  <script>
-     document.addEventListener('DOMContentLoaded', function() {
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
         let patients = JSON.parse(localStorage.getItem("patients")) || [];
         let table = document.getElementById("patientTable");
-        console.log(patients)
+        console.log(patients);
 
-        patients.forEach(p => {
-        let row = `<tr>
+        patients.forEach((p) => {
+          let row = `<tr>
             <td>${p.id}</td>
             <td>${p.name}</td>
             <td>${p.birthday}</td>
@@ -49,10 +52,9 @@
             <td>${p.reason}</td>
             <td>${p.appointment}</td>
         </tr>`;
-        table.innerHTML += row;
+          table.innerHTML += row;
         });
-
-    });
-  </script>
-</body>
+      });
+    </script>
+  </body>
 </html>

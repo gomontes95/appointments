@@ -1,12 +1,11 @@
-function convertPoundsToKg ( pounds ) {
-    return (pounds * 0.453592).toFixed(2);
-} 
-
+function convertPoundsToKg(pounds) {
+  return (pounds * 0.453592).toFixed(2);
+}
 
 function statusResult(status) {
   if (status === true) {
     return "Finished";
-    } else {
+  } else {
     return "Pending";
   }
 }

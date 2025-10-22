@@ -1,7 +1,7 @@
 function statusResult(status) {
   if (status === true) {
     return "Finished";
-    } else {
+  } else {
     return "Pending";
   }
 }
@@ -10,14 +10,14 @@ function loadAppointments(filteredId = "") {
   let patients = JSON.parse(localStorage.getItem("patients")) || [];
   let table = document.getElementById("appointmentTable");
   table.innerHTML = "";
-  
-  let filteredPatients = filteredId
-  ? patients
-      .map((p, idx) => ({ ...p, originalIndex: idx }))
-      .filter(p => p.id.toString().includes(filteredId))
-  : patients.map((p, idx) => ({ ...p, originalIndex: idx }));
 
-  filteredPatients.forEach((p => {
+  let filteredPatients = filteredId
+    ? patients
+        .map((p, idx) => ({ ...p, originalIndex: idx }))
+        .filter((p) => p.id.toString().includes(filteredId))
+    : patients.map((p, idx) => ({ ...p, originalIndex: idx }));
+
+  filteredPatients.forEach((p) => {
     let row = `<tr>
       <td>${p.id}</td>
       <td>${p.appointment}</td>
@@ -29,9 +29,8 @@ function loadAppointments(filteredId = "") {
       </td>
     </tr>`;
     table.innerHTML += row;
-  }));
+  });
 }
-
 
 function toggleStatus(index) {
   let patients = JSON.parse(localStorage.getItem("patients")) || [];
@@ -46,7 +45,8 @@ function filterAppointments() {
   loadAppointments(searchValue);
 }
 
-
 loadAppointments();
 
-{/* <button onclick="markFinished(${index})">Mark as Finished</button> */}
+{
+  /* <button onclick="markFinished(${index})">Mark as Finished</button> */
+}
