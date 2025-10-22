@@ -7,7 +7,7 @@ function statusResult(status) {
 }
 
 function loadAppointments(filteredId = "") {
-  let patients = JSON.parse(localStorage.getItem("patients")) || [];
+  let patients = localStorageHandler.getPatientList();
   let table = document.getElementById("appointmentTable");
   table.innerHTML = "";
 
@@ -33,11 +33,22 @@ function loadAppointments(filteredId = "") {
 }
 
 function toggleStatus(index) {
-  let patients = JSON.parse(localStorage.getItem("patients")) || [];
-  patients[index].status = !patients[index].status; // toggle
-  localStorage.setItem("patients", JSON.stringify(patients));
-  // Keep current filter if applied
-  loadAppointments(document.getElementById("searchBar")?.value || "");
+    try {
+        let patients = localStorageHandler.getPatientList();
+        const patientFound = patients[index] ?? null;
+        if (!patientFound) {
+            throw new Error('Patient not found!');
+        }
+
+        localStorageHandler.updatePatient({
+            ...patientFound,
+            status: !patientFound.status
+        }, index);
+        // Keep current filter if applied
+        loadAppointments(document.getElementById("searchBar")?.value || "");
+    } catch (e) {
+        alert(e.message);
+    }
 }
 
 function filterAppointments() {

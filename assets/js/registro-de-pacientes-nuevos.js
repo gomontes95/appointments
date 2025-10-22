@@ -204,8 +204,7 @@ function submitForm() {
   };
 
   // Save to array & localStorage
-  patients.push(patient);
-  localStorage.setItem("patients", JSON.stringify(patients));
+  localStorageHandler.storePatient(patient);
 
   // Clear form
   alert("Patient saved successfully!");
