@@ -1,94 +1,94 @@
-  body {
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-          background: #f9f9f9;
-        }
-      
-        .form-container {
-          max-width: 500px;
-          margin: 40px auto;
-          padding: 20px;
-          background: #fff;
-          border-radius: 12px;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-      
-        h2 {
-          text-align: center;
-          margin-bottom: 20px;
-        }
-      
-        .form-group {
-          margin-bottom: 16px;
-        }
-      
-        label {
-          display: block;
-          font-weight: bold;
-          margin-bottom: 6px;
-        }
-      
-        input {
-          width: 100%;
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 6px;
-          font-size: 14px;
-        }
-      
-        .input-with-unit {
-          display: flex;
-          align-items: center;
-        }
-      
-        .input-with-unit input {
-          flex: 1;
-        }
-      
-        .unit {
-          margin-left: 8px;
-          font-weight: bold;
-          color: #333;
-        }
-      
-        small {
-          color: gray;
-          font-size: 12px;
-          margin-left: 4px;
-        }
-      
-        button, a.style-btn {
-          width: 100%;
-          padding: 12px;
-          background: #007BFF;
-          color: #fff;
-          border: none;
-          border-radius: 6px;
-          font-size: 16px;
-          cursor: pointer;
-          transition: background 0.3s ease;
-        }
-      
-        button:hover {
-          background: #0056b3;
-          transform: translateY(-2px);
-        }
-      
-        /* Make form adapt on smaller screens */
-        @media (max-width: 600px) {
-          .form-container {
-            margin: 20px;
-            padding: 15px;
-          }
-        }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.input-with-unit {
+  display: flex;
+  align-items: center;
+}
+
+.input-with-unit input {
+  flex: 1;
+}
+
+.unit {
+  margin-left: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+small {
+  color: gray;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+button,
+a.style-btn {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Make form adapt on smaller screens */
+@media (max-width: 600px) {
+  .form-container {
+    margin: 20px;
+    padding: 15px;
+  }
+}
 
 .div-button-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 20px;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 #records .record {

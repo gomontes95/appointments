@@ -8,11 +8,11 @@ This project helps small clinics organize their schedules, reduce paperwork, and
 
 ## Features
 
-- Appointments Management – create, view, and edit patient appointments  
-- Patient Records – store and update patient details  
-- Reservation System – manage available time slots and booking requests  
-- Search Functionality – find patients or appointments quickly  
-- Local Storage (or database-ready) – data persistence depending on setup  
+- Appointments Management – create, view, and edit patient appointments
+- Patient Records – store and update patient details
+- Reservation System – manage available time slots and booking requests
+- Search Functionality – find patients or appointments quickly
+- Local Storage (or database-ready) – data persistence depending on setup
 
 ---
 
@@ -41,19 +41,19 @@ clinic-management/
 
 1. Clone this readme
 
-2. Open the project folder  
+2. Open the project folder
 
 3. Run locally  
-Open `index.html` in your browser.  
-(No installation required for static version.)
+   Open `index.html` in your browser.  
+   (No installation required for static version.)
 
 ---
 
 ## Technologies Used
 
-- HTML5 – structure and content  
-- CSS3 – design and layout  
-- JavaScript (Vanilla) – interactivity and data handling  
+- HTML5 – structure and content
+- CSS3 – design and layout
+- JavaScript (Vanilla) – interactivity and data handling
 
 ---
 
