@@ -1,15 +1,21 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Patient List</title>
-    <link
-      rel="stylesheet"
-      href="../assets/css/materialize/materialize.min.css"
-    />
-    <link rel="stylesheet" href="../assets/css/submit-style.css" />
+<head>
+  <meta charset="UTF-8">
+  <title>Patient List</title>
+    <link 
+          rel="stylesheet" 
+          href="../assets/css/materialize/materialize.min.css"
+     />
+    <link 
+          rel="stylesheet" 
+          href="../assets/css/patients-style.css"
+     />
+    <script src="../assets/js/local-storage/local-storage.handler.js"></script>
     <script src="../assets/js/operaciones-conversion.js"></script>
-  </head>
+    <script src="../assets/js/materialize/materialize.min.js"></script>
+</head>
+
   <h3>Navigation</h3>
   <div class="div-button-container">
     <a href="patients.html" class="style-btn">Go to Patient List</a>
@@ -19,7 +25,7 @@
 
   <body>
     <h2>Patients</h2>
-    <table border="1" cellpadding="5">
+    <table class="striped highlight centered blue lighten-4" border="1" cellpadding="5">
       <thead>
         <tr>
           <th>ID</th>
