@@ -6,16 +6,16 @@ function statusResult(status) {
   }
 }
 
-function loadAppointments(filteredId = "") {
+function loadAppointments(filteredId) {
   let patients = localStorageHandler.getPatientList();
   let table = document.getElementById("appointmentTable");
   table.innerHTML = "";
 
-  let filteredPatients = filteredId
-    ? patients
-        .map((p, idx) => ({ ...p, originalIndex: idx }))
-        .filter((p) => p.id.toString().includes(filteredId))
-    : patients.map((p, idx) => ({ ...p, originalIndex: idx }));
+  const filteredPatients = filterById(
+    filteredId,
+    'id',
+    patients,
+  );
 
   filteredPatients.forEach((p) => {
     let row = `<tr>
@@ -52,12 +52,8 @@ function toggleStatus(index) {
 }
 
 function filterAppointments() {
-  let searchValue = document.getElementById("searchBar").value.trim();
-  loadAppointments(searchValue);
+  const id = document.getElementById('searchBar').value.trim();
+  loadAppointments(id);
 }
 
 loadAppointments();
-
-{
-  /* <button onclick="markFinished(${index})">Mark as Finished</button> */
-}
