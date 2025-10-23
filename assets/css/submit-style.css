@@ -92,18 +92,18 @@ button:hover {
 }
 
 #records .record {
-  display: inline-block;      
-  text-align: left;           
-  background: #ffffff;        
-  padding: 15px;              
-  margin: 10px;              
-  border-radius: 8px;        
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
-  width: 250px;               
+  display: inline-block;
+  text-align: left;
+  background: #ffffff;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  width: 250px;
 }
 
 #records {
   display: flex;
-  flex-wrap: wrap;   
+  flex-wrap: wrap;
   justify-content: center;
 }

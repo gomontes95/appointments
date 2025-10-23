@@ -33,32 +33,31 @@ function loadAppointments(filteredId) {
 }
 
 function toggleStatus(index) {
-    try {
-        let patients = localStorageHandler.getPatientList();
-        const patientFound = patients[index] ?? null;
-        if (!patientFound) {
-            throw new Error('Patient not found!');
-        }
-
-        localStorageHandler.updatePatient({
-            ...patientFound,
-            status: !patientFound.status
-        }, index);
-        // Keep current filter if applied
-        loadAppointments(document.getElementById("searchBar")?.value || "");
-    } catch (e) {
-        alert(e.message);
+  try {
+    let patients = localStorageHandler.getPatientList();
+    const patientFound = patients[index] ?? null;
+    if (!patientFound) {
+      throw new Error("Patient not found!");
     }
+
+    localStorageHandler.updatePatient(
+      {
+        ...patientFound,
+        status: !patientFound.status,
+      },
+      index,
+    );
+    // Keep current filter if applied
+    loadAppointments(document.getElementById("searchBar")?.value || "");
+  } catch (e) {
+    alert(e.message);
+  }
 }
 
-
-window.toggleStatus = toggleStatus;
-
-
-//TODO make it a reusable function
 function filterAppointments() {
   const id = document.getElementById('searchBar').value.trim();
   loadAppointments(id);
 }
 
+>>>>>>> 91786c1 (10-create-a-new-javascript-file-to-centralize-reusables-functions • on develop-3)
 loadAppointments();

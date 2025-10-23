@@ -19,7 +19,11 @@ let isValid = true;
 let status = false;
 
 // Get existing patients from localStorage
+<<<<<<< HEAD
 let patients = JSON.parse(localStorage.getItem("patients")) || [];
+=======
+let patients = localStorageHandler.getPatientList();
+>>>>>>> 91786c1 (10-create-a-new-javascript-file-to-centralize-reusables-functions • on develop-3)
 
 // Generate ID (01, 02, 03...)
 let newId = (patients.length + 1).toString().padStart(2, "0");
@@ -28,6 +32,11 @@ let newId = (patients.length + 1).toString().padStart(2, "0");
 birthdayError.style.display = "none";
 weightError.style.display = "none";
 heightError.style.display = "none";
+<<<<<<< HEAD
+=======
+
+console.log("weightConverted:", document.getElementById("weight-converted"));
+>>>>>>> 91786c1 (10-create-a-new-javascript-file-to-centralize-reusables-functions • on develop-3)
 
 // --- Live input restrictions ---
 nameInput.addEventListener("input", () => {
@@ -46,6 +55,53 @@ weightInput.addEventListener("input", () => {
   }
 });
 
+<<<<<<< HEAD
+=======
+// Limit calendar to today or before
+birthdayInput.max = new Date().toISOString().split("T")[0]; // yyyy-mm-dd format
+
+// --- Validation ---
+function validateName(name) {
+  return /^[\p{Lu}\p{Ll}]+([ '-][\p{Lu}\p{Ll}]+)*$/u.test(name);
+}
+
+function validateBirthday(birthday) {
+  if (!birthday) return false;
+
+  const today = new Date();
+  const birthDate = new Date(birthday);
+
+  console.log(birthDate);
+
+  if (isNaN(birthDate.getTime())) return false;
+
+  // Disallow future dates
+  if (birthDate > today) {
+    alert("❌ Birthday cannot be in the future!");
+    return false;
+  }
+
+  if (birthDate.getFullYear() < 1900) {
+    alert("❌ Birthday must be after 1900!");
+    return false;
+  }
+
+  if (birthday.value === "") {
+    alert("❌ Birthday cannot be empty!");
+    return false;
+  }
+  return true;
+}
+
+function validateWeight(weight) {
+  return /^\d+(\.\d+)?$/.test(weight.trim());
+}
+
+function validateHeight(height) {
+  return /^\d+(\.\d+)?$/.test(height.trim());
+}
+
+>>>>>>> 91786c1 (10-create-a-new-javascript-file-to-centralize-reusables-functions • on develop-3)
 // --- Calculate age in years ---
 function calculateAge(birthday) {
   const birthDate = new Date(birthday);
@@ -109,7 +165,15 @@ function submitForm() {
     }
   }
 
+<<<<<<< HEAD
   if (!isFormValid) {
+=======
+  // Validate birthday
+  if (!birthday) {
+    birthdayError.textContent = "Birthday is required.";
+    birthdayError.style.display = "inline";
+    isValid = false;
+>>>>>>> 91786c1 (10-create-a-new-javascript-file-to-centralize-reusables-functions • on develop-3)
     return;
   }
 
@@ -117,7 +181,12 @@ function submitForm() {
   const dateParts = birthday.split("-");
   const formattedBirthday = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
   const age = calculateAge(birthday);
+<<<<<<< HEAD
 
+=======
+  const weight = weightInput.value.trim();
+  const height = heightInput.value.trim();
+>>>>>>> 91786c1 (10-create-a-new-javascript-file-to-centralize-reusables-functions • on develop-3)
   const newAppointment = new Date(appointmentInput.value).toLocaleString(
     "en-US",
     {
@@ -127,6 +196,45 @@ function submitForm() {
   );
   errorMsg.textContent = "";
 
+<<<<<<< HEAD
+=======
+  // Validate weight
+  if (!weightInput.value.trim()) {
+    weightError.textContent = "Weight is required.";
+    weightError.style.display = "block";
+    isValid = false;
+  }
+
+  // Validate height
+  if (!heightInput.value.trim()) {
+    heightError.textContent = "Height is required.";
+    heightError.style.display = "block";
+    isValid = false;
+  }
+
+  if (!isValid) {
+    stop;
+  }
+
+  if (!validateName(name)) {
+    errorMsg.textContent = "❌ Name must contain only letters.";
+    nameInput.focus();
+    return;
+  }
+
+  if (!validateWeight(weight)) {
+    // errorMsg.textContent = "❌ Weight needs to be fill.";
+    weightInput.focus();
+    return;
+  }
+
+  if (!validateHeight(height)) {
+    // errorMsg.textContent = "❌ Height needs to be fill.";
+    heightInput.focus();
+    return;
+  }
+
+>>>>>>> 91786c1 (10-create-a-new-javascript-file-to-centralize-reusables-functions • on develop-3)
   // Create a "filled form" div
   const record = document.createElement("div");
   record.classList.add("record");
