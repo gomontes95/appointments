@@ -1,3 +1,5 @@
+import { convertPoundsToKg, statusResult } from "./use-cases/index.js";
+
 const nameInput = document.getElementById("name");
 const birthdayInput = document.getElementById("birthday");
 const weightInput = document.getElementById("weight");
@@ -12,7 +14,7 @@ const weightError = document.getElementById("weight-error");
 const heightError = document.getElementById("height-error");
 const birthdayError = document.getElementById("birthday-error");
 let isValid = true;
-let status = false
+let status = false;
 
 
  // Get existing patients from localStorage

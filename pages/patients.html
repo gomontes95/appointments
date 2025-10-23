@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="../assets/css/materialize/materialize.min.css">
     <link rel="stylesheet" href="../assets/css/submit-style.css">
     <script src="../assets/js/local-storage/local-storage.handler.js"></script>
-    <script src="../assets/js/operaciones-conversion.js"></script>
+    <!-- <script type="module" src="../assets/js/use-cases/create-patients-table.js"></script> -->
+    <script type="module" src="../assets/js/patients.js"></script>
 </head>
 <h3>Navigation</h3>
 <div class="div-button-container">
@@ -32,8 +33,9 @@
     </thead>
     <tbody id="patientTable"></tbody>
   </table>
-
-  <script>
+  
+  <!-- <script>
+      import { convertPoundsToKg } from "../assets/js/use-cases/operaciones-conversion.js"
       document.addEventListener('DOMContentLoaded', function () {
           let patients = localStorageHandler.getPatientList();
           let table = document.getElementById("patientTable");
@@ -53,6 +55,6 @@
           });
 
       });
-  </script>
+  </script> -->
 </body>
 </html>

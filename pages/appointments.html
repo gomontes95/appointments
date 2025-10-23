@@ -17,7 +17,7 @@
   type="text" 
   id="searchBar" 
   placeholder="Search by Patient ID..." 
-  oninput="filterAppointments()" 
+  oninput="searchBarFilter()" 
   style="margin-bottom: 10px; padding: 5px; width: 200px;"
 >
 
@@ -36,6 +36,6 @@
     <tbody id="appointmentTable"></tbody>
   </table>
 <script src="../assets/js/local-storage/local-storage.handler.js"></script>
-<script src="../assets/js/appointments.js"></script>
+<script type="module"src="../assets/js/appointments.js"></script>
 </body>
 </html>

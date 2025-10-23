@@ -1,10 +1,12 @@
-function statusResult(status) {
-  if (status === true) {
-    return "Finished";
-    } else {
-    return "Pending";
-  }
-}
+import { statusResult } from "./use-cases/index.js";
+
+// function statusResult(status) {
+//   if (status === true) {
+//     return "Finished";
+//     } else {
+//     return "Pending";
+//   }
+// }
 
 function loadAppointments(filteredId = "") {
   let patients = localStorageHandler.getPatientList();
@@ -31,7 +33,15 @@ function loadAppointments(filteredId = "") {
     table.innerHTML += row;
   }));
 }
-
+//!PENDING from "./use-cases/search-bar-filter.js"
+// document.getElementById("searchBar").addEventListener("keyup", async () => {
+//   try {
+//     await searchBarFilter(loadAppointments);
+//     console.log("Table filtered!");
+//   } catch (err) {
+//     console.error(err);
+//   }
+// });
 
 function toggleStatus(index) {
     try {
@@ -52,10 +62,16 @@ function toggleStatus(index) {
     }
 }
 
+
+window.toggleStatus = toggleStatus;
+
+
+//TODO make it a reusable function
 function filterAppointments() {
   let searchValue = document.getElementById("searchBar").value.trim();
   loadAppointments(searchValue);
 }
 
+window.filterAppointments = filterAppointments;
 
 loadAppointments();
