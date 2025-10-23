@@ -51,6 +51,11 @@ function toggleStatus(index) {
     }
 }
 
+
+window.toggleStatus = toggleStatus;
+
+
+//TODO make it a reusable function
 function filterAppointments() {
   const id = document.getElementById('searchBar').value.trim();
   loadAppointments(id);

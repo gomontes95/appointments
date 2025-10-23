@@ -1,3 +1,5 @@
+import { convertPoundsToKg, statusResult } from "./use-cases/index.js";
+
 const nameInput = document.getElementById("name");
 const birthdayInput = document.getElementById("birthday");
 const weightInput = document.getElementById("weight");
