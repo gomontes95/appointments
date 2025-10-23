@@ -1,79 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/materialize/materialize.min.css">
-    <link rel="stylesheet" href="assets/css/submit-style.css">
-</head>
+    <link rel="stylesheet" href="assets/css/materialize/materialize.min.css" />
+    <link rel="stylesheet" href="assets/css/submit-style.css" />
+  </head>
 
-<hr>
-<h3>Navigation</h3>
-<div class="div-button-container">
-	<a href="pages/patients.html" class="style-btn">Go to Patient List</a>
-	<a href="pages/appointments.html" class="style-btn">Go to Appointments</a>
-</div>
-
-<body>
-  <form action="" id="myForm">
-    <div class="form-container">
-    <h2>Fill the Form</h2>
-
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" id="name" placeholder="Enter your name" required>
-    </div>
-
-    <div class="form-group">
-      <label for="birthday">Birthday (DD/MM/YYYY):</label>
-      <input type="date" id="birthday" required>
-      <small id="birthday-error" style="color: red; display: none;"></small>
-    </div>
-
-    <div class="form-group">
-      <label for="weight">Weight:</label>
-      <div class="input-with-unit">
-        <input type="number" id="weight" placeholder="e.g. 220" required>
-        <span class="unit">lb</span>
-        <small id="weight-error" style="color: red; display: none;"></small>
-      </div>
-      <small id="weight-converted"></small>
-    </div>
-
-    <div class="form-group">
-      <label for="height">Height:</label>
-      <div class="input-with-unit">
-        <input type="number" id="height" placeholder="e.g. 1.82" step="0.01" required>
-        <span class="unit">m</span>
-        <small id="height-error" style="color: red; display: none;"></small>
-      </div>
-    </div>
-
-
-    <div class="form-group">
-      <label for="appointment">Appointment Date & Time:</label>
-      <input type="datetime-local" id="appointment" required>
-      <small id="height-error" style="color: red; display: none;"></small>
-    </div>
-    
-    <div class="form-group">
-      <label for="reason">Reason for Appointment:</label><br>
-      <textarea id="reason" placeholder="Describe the reason..." rows="4" cols="40" required></textarea>
-      <br><br>
-    </div>
-    
-  <button type="button" id="submitBtn">Submit</button>
+  <hr />
+  <h3>Navigation</h3>
+  <div class="div-button-container">
+    <a href="pages/patients.html" class="style-btn">Go to Patient List</a>
+    <a href="pages/appointments.html" class="style-btn">Go to Appointments</a>
   </div>
-  </form>
 
-  <p id="error" style="color: red;"></p>
+  <body>
+    <form action="" id="myForm">
+      <div class="form-container">
+        <h2>Fill the Form</h2>
 
-  <h2>Submitted Form Data</h2>
-  <div id="records">
-    
-  </div>
-  <script src="assets/js/local-storage/local-storage.handler.js"></script>
-  <script  type="module" src="assets/js/registro-de-pacientes-nuevos.js"></script>
-</body>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" placeholder="Enter your name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="birthday">Birthday (DD/MM/YYYY):</label>
+          <input type="date" id="birthday" required />
+          <small id="birthday-error" style="color: red; display: none"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="weight">Weight:</label>
+          <div class="input-with-unit">
+            <input type="number" id="weight" placeholder="e.g. 220" required />
+            <span class="unit">lb</span>
+            <small id="weight-error" style="color: red; display: none"></small>
+          </div>
+          <small id="weight-converted"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="height">Height:</label>
+          <div class="input-with-unit">
+            <input
+              type="number"
+              id="height"
+              placeholder="e.g. 1.82"
+              step="0.01"
+              required
+            />
+            <span class="unit">m</span>
+            <small id="height-error" style="color: red; display: none"></small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="appointment">Appointment Date & Time:</label>
+          <input type="datetime-local" id="appointment" required />
+          <small id="height-error" style="color: red; display: none"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="reason">Reason for Appointment:</label><br />
+          <textarea
+            id="reason"
+            placeholder="Describe the reason..."
+            rows="4"
+            cols="40"
+            required
+          ></textarea>
+          <br /><br />
+        </div>
+
+        <button type="button" id="submitBtn">Submit</button>
+      </div>
+    </form>
+
+    <p id="error" style="color: red"></p>
+
+    <h2>Submitted Form Data</h2>
+    <div id="records"></div>
+    <script src="assets/js/local-storage/local-storage.handler.js"></script>
+    <script
+      type="module"
+      src="assets/js/registro-de-pacientes-nuevos.js"
+    ></script>
+  </body>
 </html>

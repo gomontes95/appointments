@@ -1,12 +1,12 @@
-import { convertPoundsToKg } from "./operaciones-conversion.js"
+import { convertPoundsToKg } from "./operaciones-conversion.js";
 
-export const createPatientTable = ( htmlId ) => {
-    document.addEventListener('DOMContentLoaded', function () {
+export const createPatientTable = (htmlId) => {
+  document.addEventListener("DOMContentLoaded", function () {
     let patients = localStorageHandler.getPatientList();
-    let table = document.getElementById( htmlId );
+    let table = document.getElementById(htmlId);
     console.log(patients);
-    patients.forEach(p => {
-        let row = `<tr>
+    patients.forEach((p) => {
+      let row = `<tr>
                   <td>${p.id}</td>
                   <td>${p.name}</td>
                   <td>${p.birthday}</td>
@@ -16,8 +16,7 @@ export const createPatientTable = ( htmlId ) => {
                   <td>${p.reason}</td>
                   <td>${p.appointment}</td>
               </tr>`;
-        table.innerHTML += row;
-    })
-});
-} 
-
+      table.innerHTML += row;
+    });
+  });
+};

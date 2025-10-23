@@ -1,41 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Appointments</title>
-  
-  <link rel="stylesheet" href="../assets/css/materialize/materialize.min.css">
-  <link rel="stylesheet" href="../assets/css/submit-style.css">
-</head>
-<h3>Navigation</h3>
-<div class="div-button-container">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Appointments</title>
+
+    <link
+      rel="stylesheet"
+      href="../assets/css/materialize/materialize.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/submit-style.css" />
+  </head>
+  <h3>Navigation</h3>
+  <div class="div-button-container">
     <a href="patients.html" class="style-btn">Go to Patient List</a>
     <a href="appointments.html" class="style-btn">Go to Appointments</a>
     <a href="../index.html" class="style-btn">Go to Form</a>
-</div>
-<input 
-  type="text" 
-  id="searchBar" 
-  placeholder="Search by Patient ID..." 
-  oninput="searchBarFilter()" 
-  style="margin-bottom: 10px; padding: 5px; width: 200px;"
->
+  </div>
 
-<body>
-  <h2>Medical Appointments</h2>
-  <table border="1" cellpadding="5">
-    <thead>
-      <tr>
-        <th>Patient ID</th>
-        <th>Appointment</th>
-        <th>Status</th>
-        <th>Reason</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody id="appointmentTable"></tbody>
-  </table>
-<script src="../assets/js/local-storage/local-storage.handler.js"></script>
-<script type="module"src="../assets/js/appointments.js"></script>
-</body>
+  <body>
+    <h2>Medical Appointments
+
+        <input
+          type="text"
+          id="searchBar"
+          placeholder="Search by Patient ID..."
+          oninput="filterAppointments()"
+          style="margin-bottom: 10px; padding: 5px; width: 200px; float: right;"
+        />
+
+    </h2>
+    <table border="1" cellpadding="5">
+      <thead>
+        <tr>
+          <th>Patient ID</th>
+          <th>Appointment</th>
+          <th>Status</th>
+          <th>Reason</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="appointmentTable"></tbody>
+    </table>
+    <script src="../assets/js/local-storage/local-storage.handler.js"></script>
+    <script type="module" src="../assets/js/appointments.js"></script>
+  </body>
 </html>
