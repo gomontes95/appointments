@@ -10,8 +10,6 @@ const recordsDiv = document.getElementById("records");
 const appointmentInput = document.getElementById("appointment");
 const reasonInput = document.getElementById("reason");
 
-const appointmentError = document.getElementById("appointment-error");
-const nameError = document.getElementById("name-error");
 const weightError = document.getElementById("weight-error");
 const heightError = document.getElementById("height-error");
 const birthdayError = document.getElementById("birthday-error");
@@ -19,11 +17,7 @@ let isValid = true;
 let status = false;
 
 // Get existing patients from localStorage
-<<<<<<< HEAD
-let patients = JSON.parse(localStorage.getItem("patients")) || [];
-=======
 let patients = localStorageHandler.getPatientList();
->>>>>>> 91786c1 (10-create-a-new-javascript-file-to-centralize-reusables-functions • on develop-3)
 
 // Generate ID (01, 02, 03...)
 let newId = (patients.length + 1).toString().padStart(2, "0");
@@ -32,11 +26,8 @@ let newId = (patients.length + 1).toString().padStart(2, "0");
 birthdayError.style.display = "none";
 weightError.style.display = "none";
 heightError.style.display = "none";
-<<<<<<< HEAD
-=======
 
 console.log("weightConverted:", document.getElementById("weight-converted"));
->>>>>>> 91786c1 (10-create-a-new-javascript-file-to-centralize-reusables-functions • on develop-3)
 
 // --- Live input restrictions ---
 nameInput.addEventListener("input", () => {
@@ -55,8 +46,6 @@ weightInput.addEventListener("input", () => {
   }
 });
 
-<<<<<<< HEAD
-=======
 // Limit calendar to today or before
 birthdayInput.max = new Date().toISOString().split("T")[0]; // yyyy-mm-dd format
 
@@ -101,7 +90,6 @@ function validateHeight(height) {
   return /^\d+(\.\d+)?$/.test(height.trim());
 }
 
->>>>>>> 91786c1 (10-create-a-new-javascript-file-to-centralize-reusables-functions • on develop-3)
 // --- Calculate age in years ---
 function calculateAge(birthday) {
   const birthDate = new Date(birthday);
@@ -126,67 +114,22 @@ function calculateAge(birthday) {
 function submitForm() {
   const name = nameInput.value.trim();
   const birthday = birthdayInput.value.trim();
-  const weight = weightInput.value.trim();
-  const height = heightInput.value.trim();
-  const appointment = appointmentInput.value.trim();
-  const formObject = {
-    appointment: {
-      elementHTML: appointmentError,
-      value: appointment,
-    },
-    birthday: {
-      elementHTML: birthdayError,
-      value: birthday,
-    },
-    height: {
-      elementHTML: heightError,
-      value: height
-    },
-    name: {
-      elementHTML: nameError,
-      value: name,
-    },
-    weight: {
-      elementHTML: weightError,
-      value: weight
-    },
-  };
-  let isFormValid = true;
-  for (const key of Object.keys(formObject)) {
-    const { elementHTML, value }  = formObject[key];
-    try {
-      elementHTML.textContent = '';
-      elementHTML.style.display = 'none';
-      validator[`validate${capitilizeString(key)}`](value);
-    } catch (e) {
-      elementHTML.textContent = e.message;
-      elementHTML.style.display = 'block';
-      isFormValid = false;
-    }
-  }
+  const reason = reasonInput.value.trim();
+  const status = false;
 
-<<<<<<< HEAD
-  if (!isFormValid) {
-=======
   // Validate birthday
   if (!birthday) {
     birthdayError.textContent = "Birthday is required.";
     birthdayError.style.display = "inline";
     isValid = false;
->>>>>>> 91786c1 (10-create-a-new-javascript-file-to-centralize-reusables-functions • on develop-3)
     return;
   }
 
-  const status = true;
   const dateParts = birthday.split("-");
   const formattedBirthday = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
   const age = calculateAge(birthday);
-<<<<<<< HEAD
-
-=======
   const weight = weightInput.value.trim();
   const height = heightInput.value.trim();
->>>>>>> 91786c1 (10-create-a-new-javascript-file-to-centralize-reusables-functions • on develop-3)
   const newAppointment = new Date(appointmentInput.value).toLocaleString(
     "en-US",
     {
@@ -196,8 +139,6 @@ function submitForm() {
   );
   errorMsg.textContent = "";
 
-<<<<<<< HEAD
-=======
   // Validate weight
   if (!weightInput.value.trim()) {
     weightError.textContent = "Weight is required.";
@@ -234,7 +175,6 @@ function submitForm() {
     return;
   }
 
->>>>>>> 91786c1 (10-create-a-new-javascript-file-to-centralize-reusables-functions • on develop-3)
   // Create a "filled form" div
   const record = document.createElement("div");
   record.classList.add("record");
