@@ -103,7 +103,7 @@ function submitForm() {
     } catch (e) {
       elementHTML.textContent = e.message;
       elementHTML.style.display = 'block';
-      isFormValid = isFormValid && false;
+      isFormValid = false;
     }
   }
 
