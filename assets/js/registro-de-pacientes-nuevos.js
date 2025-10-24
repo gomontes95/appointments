@@ -44,50 +44,6 @@ weightInput.addEventListener("input", () => {
   }
 });
 
-// Limit calendar to today or before
-birthdayInput.max = new Date().toISOString().split("T")[0]; // yyyy-mm-dd format
-
-// --- Validation ---
-function validateName(name) {
-  return /^[\p{Lu}\p{Ll}]+([ '-][\p{Lu}\p{Ll}]+)*$/u.test(name);
-}
-
-function validateBirthday(birthday) {
-  if (!birthday) return false;
-
-  const today = new Date();
-  const birthDate = new Date(birthday);
-
-  console.log(birthDate);
-
-  if (isNaN(birthDate.getTime())) return false;
-
-  // Disallow future dates
-  if (birthDate > today) {
-    alert("❌ Birthday cannot be in the future!");
-    return false;
-  }
-
-  if (birthDate.getFullYear() < 1900) {
-    alert("❌ Birthday must be after 1900!");
-    return false;
-  }
-
-  if (birthday.value === "") {
-    alert("❌ Birthday cannot be empty!");
-    return false;
-  }
-  return true;
-}
-
-function validateWeight(weight) {
-  return /^\d+(\.\d+)?$/.test(weight.trim());
-}
-
-function validateHeight(height) {
-  return /^\d+(\.\d+)?$/.test(height.trim());
-}
-
 // --- Calculate age in years ---
 function calculateAge(birthday) {
   const birthDate = new Date(birthday);
