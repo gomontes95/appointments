@@ -99,7 +99,7 @@ function submitForm() {
     try {
       elementHTML.textContent = '';
       elementHTML.style.display = 'none';
-      validator[`validate${capitilize(key)}`](value);
+      validator[`validate${capitilizeString(key)}`](value);
     } catch (e) {
       elementHTML.textContent = e.message;
       elementHTML.style.display = 'block';
