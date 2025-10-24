@@ -1,11 +1,3 @@
-function statusResult(status) {
-  if (status === true) {
-    return "Finished";
-  } else {
-    return "Pending";
-  }
-}
-
 function loadAppointments(filteredId) {
   let patients = localStorageHandler.getPatientList();
   let table = document.getElementById("appointmentTable");
@@ -18,14 +10,18 @@ function loadAppointments(filteredId) {
   );
 
   filteredPatients.forEach((p) => {
+    // Find the index of this patient in the original patients array
+    const originalIndex = patients.findIndex(item => String(item.id) === String(p.id));
+
     let row = `<tr>
       <td>${p.id}</td>
       <td>${p.appointment}</td>
       <td>${statusResult(p.status)}</td>
       <td>${p.reason}</td>
       <td>
-        <button onclick="toggleStatus(${p.originalIndex})">
-        ${p.status ? "Mark Pending" : "Mark Finished"}
+        <button onclick="toggleStatus(${originalIndex})">
+          ${p.status ? "Mark Pending" : "Mark Finished"}
+        </button>
       </td>
     </tr>`;
     table.innerHTML += row;

@@ -44,26 +44,6 @@ weightInput.addEventListener("input", () => {
   }
 });
 
-// --- Calculate age in years ---
-function calculateAge(birthday) {
-  const birthDate = new Date(birthday);
-  const today = new Date();
-
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const monthDiff = today.getMonth() - birthDate.getMonth();
-  const dayDiff = today.getDate() - birthDate.getDate();
-
-  // If birthday hasn’t occurred yet this year → subtract 1
-  if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
-    age--;
-  }
-
-  // Prevent negative ages
-  if (age < 0) return 0;
-
-  return age;
-}
-
 // --- Create record ---
 function submitForm() {
   const name = nameInput.value.trim();
@@ -127,6 +107,7 @@ function submitForm() {
 
   // Create a "filled form" div
   const record = document.createElement("div");
+  const reason = reasonInput.value.trim();
   record.classList.add("record");
   record.innerHTML = `
     <strong>ID:</strong> ${newId}<br>
