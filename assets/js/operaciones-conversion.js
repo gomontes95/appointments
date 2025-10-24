@@ -3,6 +3,6 @@
  * @param {Number} pounds
  * @returns
  */
-export function convertPoundsToKg(pounds) {
+function convertPoundsToKg(pounds) {
   return (pounds * 0.453592).toFixed(2);
 }
