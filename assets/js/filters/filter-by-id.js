@@ -8,7 +8,7 @@
 const filterBy = (searchValue, fields = ['id', 'name'], data = []) => {
   if (!searchValue) return data;
 
-  if (!fieldSearchName) {
+  if (!searchValue) {
     throw new Error('The parameter fieldSearchName should have a valid value');
   }
 
@@ -16,11 +16,11 @@ const filterBy = (searchValue, fields = ['id', 'name'], data = []) => {
     throw new TypeError('The parameter data should be an array');
   }
 
-  const search = String(searchValue).toLowerCase();
+  const search = String(searchValue);
 
-  return data.filter(patients =>
+  return data.filter(obj =>
     fields.some(field =>
-      String(patients[field] || '').toLowerCase().includes(search)
+      String(obj[field]).includes(search)
     )
   );
 };
