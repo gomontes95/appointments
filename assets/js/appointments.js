@@ -3,9 +3,9 @@ function loadAppointments(filteredId) {
   let table = document.getElementById("appointmentTable");
   table.innerHTML = "";
 
-  const filteredPatients = filterById(
+  const filteredPatients = filterBy(
     filteredId,
-    'id',
+    ['id'],
     patients,
   );
 
