@@ -1,40 +1,34 @@
-const nameInput = document.getElementById("name");
-const birthdayInput = document.getElementById("birthday");
-const weightInput = document.getElementById("weight");
-const weightConverted = document.getElementById("weight-converted");
-const heightInput = document.getElementById("height");
-const errorMsg = document.getElementById("error");
-const recordsDiv = document.getElementById("records");
-const appointmentInput = document.getElementById("appointment");
-const reasonInput = document.getElementById("reason");
-
-const appointmentError = document.getElementById("appointment-error");
-const nameError = document.getElementById("name-error");
-const weightError = document.getElementById("weight-error");
-const heightError = document.getElementById("height-error");
-const birthdayError = document.getElementById("birthday-error");
-let isValid = true;
-let status = false;
+//HTML variables
+const appointmentError = document.getElementById("appointment-error"),
+      appointmentInput = document.getElementById("appointment"),
+      birthdayError = document.getElementById("birthday-error"),
+      birthdayInput = document.getElementById("birthday"),
+      heightError = document.getElementById("height-error"),
+      heightInput = document.getElementById("height"),
+      nameError = document.getElementById("name-error"),
+      nameInput = document.getElementById("name"),
+      reasonInput = document.getElementById("reason"),
+      recordsDiv = document.getElementById("records"),
+      weightConverted = document.getElementById("weight-converted"),
+      weightError = document.getElementById("weight-error"),
+      weightInput = document.getElementById("weight");
 
 // Get existing patients from localStorage
-let patients = JSON.parse(localStorage.getItem("patients")) || [];
+let patients = localStorageHandler.getPatientList();
 
 // Generate ID (01, 02, 03...)
 let newId = (patients.length + 1).toString().padStart(2, "0");
 
 // Reset previous errors
 birthdayError.style.display = "none";
-weightError.style.display = "none";
 heightError.style.display = "none";
+weightError.style.display = "none";
 
 // --- Live input restrictions ---
 nameInput.addEventListener("input", () => {
   nameInput.value = nameInput.value.replace(/[^\p{L}\s'-]/gu, "");
 });
 
-const borrar = "Backspace";
-
-const weightOnly = weight;
 weightInput.addEventListener("input", () => {
   const pounds = parseFloat(weightInput.value);
   if (!isNaN(pounds)) {
@@ -46,12 +40,12 @@ weightInput.addEventListener("input", () => {
 
 // --- Create record ---
 function submitForm() {
-  const name = nameInput.value.trim();
-  const birthday = birthdayInput.value.trim();
-  const weight = weightInput.value.trim();
-  const height = heightInput.value.trim();
-  const appointment = appointmentInput.value.trim();
-  const formObject = {
+  const appointment = appointmentInput.value.trim(),
+        birthday = birthdayInput.value.trim(),
+        height = heightInput.value.trim(),
+        name = nameInput.value.trim(),
+        weight = weightInput.value.trim(),
+        formObject = {
     appointment: {
       elementHTML: appointmentError,
       value: appointment,
@@ -91,10 +85,10 @@ function submitForm() {
     return;
   }
 
-  const status = true;
-  const dateParts = birthday.split("-");
-  const formattedBirthday = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
-  const age = calculateAge(birthday);
+  const age = calculateAge(birthday),
+        dateParts = birthday.split("-"),
+        formattedBirthday = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`,
+        status = true;
 
   const newAppointment = new Date(appointmentInput.value).toLocaleString(
     "en-US",
@@ -103,11 +97,10 @@ function submitForm() {
       timeStyle: "short",
     },
   );
-  errorMsg.textContent = "";
 
   // Create a "filled form" div
-  const record = document.createElement("div");
   const reason = reasonInput.value.trim();
+  const record = document.createElement("div");
   record.classList.add("record");
   record.innerHTML = `
     <strong>ID:</strong> ${newId}<br>
@@ -125,15 +118,15 @@ function submitForm() {
 
   // Create patient object
   let patient = {
+    age: calculateAge(birthday),
+    appointment: newAppointment,
+    birthday: birthday,
+    height: height,
     id: newId,
     name: name,
-    birthday: birthday,
-    age: calculateAge(birthday),
-    weight,
-    height: height,
     reason: reason,
-    appointment: newAppointment,
     status: statusResult(status),
+    weight,
   };
 
   // Save to array & localStorage
@@ -145,7 +138,4 @@ function submitForm() {
 }
 
 // --- Attach button ---
-(document.getElementById("submitBtn").addEventListener("click", submitForm),
-  {
-    isValid: true,
-  });
+document.getElementById("submitBtn").addEventListener("click", submitForm);

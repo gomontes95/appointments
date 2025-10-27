@@ -43,7 +43,7 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        let patients = JSON.parse(localStorage.getItem("patients")) || [];
+        let patients = localStorageHandler.getPatientList();
         let table = document.getElementById("patientTable");
         console.log(patients);
 
