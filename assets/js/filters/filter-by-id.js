@@ -3,7 +3,7 @@
  * @param { String } searchValue Comparative value
  * @param { [PropertyKey] } fields Property contents that could be compared, could be multiple.
  * @param { Array } data The Array to be filter
- * @returns { Array } New Array with only the filtered Property
+ * @returns { Array } New Array with only the ones that pass the filter.
  */
 const filterBy = (searchValue, fields = ['id', 'name'], data = []) => {
   if (!searchValue) return data;
