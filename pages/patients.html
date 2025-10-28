@@ -11,6 +11,7 @@
           rel="stylesheet"
           href="../assets/css/patients-style.css"
      />
+    <script src="../assets/js/filters/filter-by-id.js"></script>
     <script src="../assets/js/local-storage/local-storage.handler.js"></script>
     <script src="../assets/js/operaciones-conversion.js"></script>
     <script src="../assets/js/materialize/materialize.min.js"></script>
@@ -24,7 +25,17 @@
   </div>
 
   <body>
-    <h2>Patients</h2>
+    <h2>Patients
+
+          <input
+    type="text"
+    id="searchBar"
+    placeholder="Search Patient..."
+    oninput="filterPatients()"
+    style="margin-bottom: 10px; padding: 5px; width: 200px; float: right;"
+    >
+
+    </h2>
     <table class="striped highlight centered blue lighten-4" border="1" cellpadding="5">
       <thead>
         <tr>
@@ -42,25 +53,41 @@
     </table>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        let patients = JSON.parse(localStorage.getItem("patients")) || [];
-        let table = document.getElementById("patientTable");
-        console.log(patients);
+    function loadPatients(filteredId) {
+      let patients = localStorageHandler.getPatientList();
+      let table = document.getElementById("patientTable");
+      table.innerHTML = "";
 
-        patients.forEach((p) => {
-          let row = `<tr>
-            <td>${p.id}</td>
-            <td>${p.name}</td>
-            <td>${p.birthday}</td>
-            <td>${p.weight} (${convertPoundsToKg(p.weight)} kg) </td>
-            <td>${p.height} m</td>
-            <td>${p.age}</td>
-            <td>${p.reason}</td>
-            <td>${p.appointment}</td>
+      const filteredPatients = filterBy(
+        filteredId,
+        ['id', 'name'],
+        patients,
+      );
+
+      filteredPatients.forEach((p) => {
+        let row = `<tr>
+          <td>${p.id}</td>
+          <td>${p.name}</td>
+          <td>${p.birthday}</td>
+          <td>${p.weight} (${convertPoundsToKg(p.weight)} kg)</td>
+          <td>${p.height} m</td>
+          <td>${p.age}</td>
+          <td>${p.reason}</td>
+          <td>${p.appointment}</td>
         </tr>`;
-          table.innerHTML += row;
-        });
+        table.innerHTML += row;
       });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      loadPatients();
+
+    });
+
+    function filterPatients() {
+      const id = document.getElementById('searchBar').value.trim();
+      loadPatients(id);
+    }
     </script>
   </body>
 </html>
